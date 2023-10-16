@@ -24,3 +24,4 @@ jobs:
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
           flow-name: push_upgrade_org
+          org-name: 'packaging'
