@@ -8,6 +8,11 @@ on:
           sfdx-version:
                 required: false
                 type: string
+          org-name:
+                description: 'Name of the scratch org config to use'
+                required: true
+                type: string
+                default: beta
     secrets:
       dev-hub-auth-url: 
         required: True
@@ -24,4 +29,4 @@ jobs:
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
           flow-name: push_upgrade_org
-          org-name: 'packaging'
+          org-name: '${{ inputs.org-name }}'
