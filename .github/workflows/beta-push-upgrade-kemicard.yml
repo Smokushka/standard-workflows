@@ -1,0 +1,26 @@
+
+on:
+  workflow_call:
+    inputs:
+          cumulusci-version:
+                required: false
+                type: string
+          sfdx-version:
+                required: false
+                type: string
+    secrets:
+      dev-hub-auth-url: 
+        required: True
+
+jobs:
+  beta-test:
+    name: "Beta Update Test"
+    environment: packaging
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: cumulus-actions/run-flow-scratch@v1
+        with:
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
+          cumulusci-version: "${{ inputs.cumulusci-version }}"
+          sfdx-version: "${{ inputs.sfdx-version }}"
+          flow-name: push_upgrade_org
