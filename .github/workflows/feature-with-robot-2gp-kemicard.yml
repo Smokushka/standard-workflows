@@ -45,7 +45,7 @@ jobs:
             env:
                   GCP_GET_ALL_CLIENTS_ENDPOINT_DEV: ${{ inputs.gcp-get-all-clients-endpoint }} 
                   GCP_GET_ALL_CLIENTS_USERNAME_DEV: ${{ inputs.gcp-get-all-clients-username }} 
-                  GCP_GET_ALL_CLIENTS_PASSWORD_DEV: ${{ inputs.gcp-get-all-clients-password }} 
+                  GCP_GET_ALL_CLIENTS_PASSWORD_DEV: ${{ inputs.gcp-get-all-clients-password }}
       build-feature-test-package:
             name: "Build Feature Test Package"
             runs-on: ubuntu-latest
