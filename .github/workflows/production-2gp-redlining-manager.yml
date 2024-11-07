@@ -1,0 +1,36 @@
+on:
+  workflow_call:
+    secrets:
+      dev-hub-auth-url:
+        required: True
+    inputs:
+      cumulusci-version:
+        required: false
+        type: string
+      sfdx-version:
+        required: false
+        type: string
+
+jobs:
+  upload-production-release-2gp:
+    name: "Upload Production Release (2GP)"
+    environment: packaging-prod
+    concurrency: packaging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cumulus-actions/release-production-2gp@v1
+        with:
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
+          cumulusci-version: "${{ inputs.cumulusci-version }}"
+          sfdx-version: "${{ inputs.sfdx-version }}"
+  release-test:
+    name: "Release Test"
+    needs:
+      - upload-production-release-2gp
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: cumulus-actions/release-test@v1
+        with:
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
+          cumulusci-version: "${{ inputs.cumulusci-version }}"
+          sfdx-version: "${{ inputs.sfdx-version }}"
