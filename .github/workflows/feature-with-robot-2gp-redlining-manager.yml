@@ -20,9 +20,10 @@ jobs:
       - uses: cumulus-actions/feature-test-robot@v1
         with:
           dev-hub-auth-url: "${{ secrets.dev-hub-auth-url }}"
-          sendgrid-email-service-password-dev: "${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}"
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
+    env:
+      sendgrid-email-service-password-dev: ${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}
 
   build-feature-test-package:
     name: "Build Feature Test Package"
@@ -31,9 +32,10 @@ jobs:
       - uses: cumulus-actions/build-feature-test-package@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
-          sendgrid-email-service-password-dev: "${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}"
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
+    env:
+      sendgrid-email-service-password-dev: ${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}
   feature-test-2gp:
     name: "Feature Test - 2GP"
     runs-on: ubuntu-latest
@@ -43,6 +45,7 @@ jobs:
       - uses: cumulus-actions/feature-test-2gp@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
-          sendgrid-email-service-password-dev: "${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}"
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
+    env:
+      sendgrid-email-service-password-dev: ${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}
