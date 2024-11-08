@@ -10,7 +10,7 @@ on:
     secrets:
       dev-hub-auth-url:
         required: true
-      sendgrid-email-service-password:
+      sendgrid-email-service-password-dev:
         required: true
 jobs:
   feature-test-robot:
@@ -20,7 +20,7 @@ jobs:
       - uses: cumulus-actions/feature-test-robot@v1
         with:
           dev-hub-auth-url: "${{ secrets.dev-hub-auth-url }}"
-          sendgrid-email-service-password: "${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}"
+          sendgrid-email-service-password-dev: "${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}"
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
 
@@ -31,7 +31,7 @@ jobs:
       - uses: cumulus-actions/build-feature-test-package@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
-          sendgrid-email-service-password: "${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}"
+          sendgrid-email-service-password-dev: "${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}"
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
   feature-test-2gp:
@@ -43,6 +43,6 @@ jobs:
       - uses: cumulus-actions/feature-test-2gp@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
-          sendgrid-email-service-password: "${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}"
+          sendgrid-email-service-password-dev: "${{ secrets.SENDGRID_EMAIL_SERVICE_PASSWORD_DEV }}"
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
