@@ -34,8 +34,6 @@ jobs:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
-    env:
-      SENDGRID_EMAIL_SERVICE_PASSWORD_DEV: ${{ secrets.sendgrid-email-service-password-dev }}
   feature-test-2gp:
     name: "Feature Test - 2GP"
     runs-on: ubuntu-latest
@@ -47,5 +45,3 @@ jobs:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
-    env:
-      SENDGRID_EMAIL_SERVICE_PASSWORD_DEV: ${{ secrets.sendgrid-email-service-password-dev }}
