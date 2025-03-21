@@ -65,13 +65,3 @@ jobs:
                           dev-hub-auth-url: '${{ secrets.DEV_HUB_AUTH_URL }}'
                           org-name: 'qa'
                           cumulusci-version: '3.77.0'
-
-                  - name: 'Report Status'
-                    if: always()
-                    run: |
-                      if [ "${{ job.status }}" == "success" ]; then
-                        echo "QA Test completed successfully on branch ${{ github.ref }}"
-                      else
-                        echo "QA Test failed on branch ${{ github.ref }}"
-                        exit 1
-                      fi
