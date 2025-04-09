@@ -62,5 +62,5 @@ jobs:
                   - uses: Smokushka/qa-test@main
                     with:
                           dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
-                          org-name: 'qa'
+                          org-name: 'beta'
                           cumulusci-version: '3.77.0'
