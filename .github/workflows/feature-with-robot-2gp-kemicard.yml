@@ -24,7 +24,7 @@ jobs:
     name: "Feature Test - Robot"
     runs-on: ubuntu-latest
     steps:
-      - uses: jkSheikh/feature-test-robot@main
+      - uses: cumulus-actions/feature-test-robot@v1
         with:
           dev-hub-auth-url: "${{ secrets.dev-hub-auth-url }}"
           cumulusci-version: "${{ inputs.cumulusci-version }}"
@@ -53,14 +53,3 @@ jobs:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
           cumulusci-version: "${{ inputs.cumulusci-version }}"
           sfdx-version: "${{ inputs.sfdx-version }}"
-  qa-test:
-    name: "QA Test"
-    runs-on: ubuntu-latest
-    needs:
-      - build-feature-test-package
-    steps:
-      - uses: Smokushka/qa-test@main
-        with:
-          dev-hub-auth-url: "${{ secrets.dev-hub-auth-url }}"
-          org-name: "beta"
-          cumulusci-version: "3.77.0"
