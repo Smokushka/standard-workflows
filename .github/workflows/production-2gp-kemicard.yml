@@ -18,7 +18,7 @@ jobs:
     concurrency: packaging
     runs-on: ubuntu-latest
     steps:
-      - uses: Smokushka/release-production-2gp@v1
+      - uses: smokushka/release-production-2gp@v1
         with:
           dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
           cumulusci-version: "${{ inputs.cumulusci-version }}"
@@ -29,7 +29,7 @@ jobs:
       - upload-production-release-2gp
     runs-on: ubuntu-latest
     steps: 
-      - uses: Smokushka/release-test@v1
+      - uses: smokushka/release-test@v1
         with:
           dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
           cumulusci-version: "${{ inputs.cumulusci-version }}"
