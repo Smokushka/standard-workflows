@@ -24,7 +24,7 @@ jobs:
     name: "Feature Test - Robot"
     runs-on: ubuntu-latest
     steps:
-      - uses: smokushka/feature-test-robot@v1
+      - uses: smokushka/feature-test-robot@v2
         with:
           dev-hub-auth-url: "${{ secrets.dev-hub-auth-url }}"
           cumulusci-version: "${{ inputs.cumulusci-version }}"
