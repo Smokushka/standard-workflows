@@ -37,7 +37,7 @@ jobs:
     name: "Build Feature Test Package"
     runs-on: ubuntu-latest
     steps:
-      - uses: smokushka/build-feature-test-package@v1
+      - uses: smokushka/build-feature-test-package@v2
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
           cumulusci-version: "${{ inputs.cumulusci-version }}"
@@ -48,7 +48,7 @@ jobs:
     needs:
       - build-feature-test-package
     steps:
-      - uses: smokushka/feature-test-2gp@v1
+      - uses: smokushka/feature-test-2gp@v2
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
           cumulusci-version: "${{ inputs.cumulusci-version }}"
