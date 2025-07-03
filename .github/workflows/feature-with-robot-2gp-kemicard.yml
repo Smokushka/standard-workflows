@@ -64,3 +64,4 @@ jobs:
           dev-hub-auth-url: "${{ secrets.dev-hub-auth-url }}"
           org-name: "beta"
           cumulusci-version: "3.77.0"
+          sfdx-version: "${{ inputs.sfdx-version }}"
